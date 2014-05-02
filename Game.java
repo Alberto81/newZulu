@@ -123,12 +123,15 @@ public class Game
         return wantToQuit;
     }
 
-    public void validComands()
+    public void validComandsA()
     {
     parser.getCommands().showAll();
     }
     
-    
+    public void validComandsB()
+    {
+     parser.imprimeComandos();
+    }
 
     /**
      * Print out some help information.

@@ -29,11 +29,18 @@ public class Parser
         commands = new CommandWords();
         reader = new Scanner(System.in);
     }
+    
     //solucion 1 de 01116
     public CommandWords getCommands()
     {
      return commands;   
      }
+     
+    //solucion 2 de 01116
+    public void imprimeComandos()
+    {
+      commands.showAll();
+    }
     /**
      * @return The next command from the user.
      */
