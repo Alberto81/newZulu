@@ -115,6 +115,9 @@ public class Game
         }
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
+        }
+        else if (commandWord.equals("look")) {
+            printLocationInfo();
         } 
 
         return wantToQuit;
@@ -156,10 +159,9 @@ public class Game
         else {
             currentRoom = nextRoom;//cambio de habitacion
         }
-        printLocationInfo();
+         printLocationInfo();
     }
 
-      
     // ejercicio 0108, cambiar codigo repetido por petodo privado
     private void printLocationInfo()
     {
