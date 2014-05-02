@@ -123,7 +123,12 @@ public class Game
         return wantToQuit;
     }
 
-    // implementations of user commands:
+    public void validComands()
+    {
+    parser.getCommands().showAll();
+    }
+    
+    
 
     /**
      * Print out some help information.
