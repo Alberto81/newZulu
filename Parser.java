@@ -14,7 +14,7 @@ import java.util.Scanner;
  * returns a command object that is marked as an unknown command.
  * 
  * @author  Michael Kölling and David J. Barnes
- * @version 2011.07.31
+ * @version 2011.07.31.
  */
 public class Parser 
 {
