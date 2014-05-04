@@ -27,7 +27,7 @@ public class Room
      * "an open court yard".
      * @param description The room's description.
      */
-    public Room(String description) 
+    public Room(String description)  
     {
         this.description = description;
         direccion = new HashMap<String, Room>();//creamos el hashmap y lo llenamos(ej0112)
