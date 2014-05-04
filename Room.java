@@ -17,8 +17,9 @@ import java.util.Set;
 public class Room 
 {  //ejercicio0111 para que los atributos de room sean privados
     private HashMap<String, Room> direccion;
-
     private String description;
+    private String objeto;
+    private float pesoObjeto;
 
     /**
      * Create a room described "description". Initially, it has
@@ -29,8 +30,9 @@ public class Room
     public Room(String description) 
     {
         this.description = description;
-
         direccion = new HashMap<String, Room>();//creamos el hashmap y lo llenamos(ej0112)
+        objeto = null;
+        pesoObjeto = 0.0F;
 
     }
 
@@ -38,8 +40,21 @@ public class Room
     {
 
         System.out.println("You are " + getDescription());
+          //para describir el objeto
+        if(objeto != null){
+            System.out.println("There are "+objeto+". Pesa "+pesoObjeto+" kg." );
+        }
+        else{
+            System.out.println("No hay ningun objeto"); 
+        }
         System.out.print(getExitString());
         System.out.println(); 
+    }
+
+    public void setObjeto(String objeto, float pesoObjeto)
+    {
+        this.objeto = objeto;
+        this.pesoObjeto = pesoObjeto;
     }
 
     public String getExitString()
