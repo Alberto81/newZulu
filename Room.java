@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Set;
+import java.util.ArrayList;
 /**
  * Class Room - a room in an adventure game.
  *
@@ -18,8 +19,7 @@ public class Room
 {  //ejercicio0111 para que los atributos de room sean privados
     private HashMap<String, Room> direccion;
     private String description;
-    private String objeto;
-    private float pesoObjeto;
+    private ArrayList<Objeto> objetos;
 
     /**
      * Create a room described "description". Initially, it has
@@ -31,8 +31,7 @@ public class Room
     {
         this.description = description;
         direccion = new HashMap<String, Room>();//creamos el hashmap y lo llenamos(ej0112)
-        objeto = null;
-        pesoObjeto = 0.0F;
+        objetos = new ArrayList<Objeto>();
 
     }
 
@@ -40,23 +39,18 @@ public class Room
     {
 
         System.out.println("You are " + getDescription());
-          //para describir el objeto
-        if(objeto != null){
-            System.out.println("There are "+objeto+". Pesa "+pesoObjeto+" kg." );
-        }
-        else{
-            System.out.println("No hay ningun objeto"); 
+        for(Objeto objeto: objetos ){
+          objeto.describeObjeto();
         }
         System.out.print(getExitString());
         System.out.println(); 
     }
-
-    public void setObjeto(String objeto, float pesoObjeto)
+    
+    public void addItem (String objeto, float pesoObjeto)
     {
-        this.objeto = objeto;
-        this.pesoObjeto = pesoObjeto;
+        objetos.add(new Objeto(objeto, pesoObjeto));
     }
-
+        
     public String getExitString()
     {
         String conjuntoSalidas="salidas por: ";
