@@ -40,6 +40,18 @@ public class Player
         }
     }
 
+    public Objeto tiro(int indx){
+        Objeto devuelve = null;
+        if (indx >= 0 && indx < mochila.size()){
+            devuelve = mochila.get(indx);
+            mochila.remove(indx);
+        }
+        else{
+            System.out.println("ese numero no se corresponde con ningun objeto");
+        }
+        return devuelve;
+    }
+
     public void imprimeMochila()
     {
         int pos = 0;

@@ -35,6 +35,11 @@ public class Room
 
     }
 
+    public void dejaObjeto(Objeto objeto)
+    {
+        objetos.add(objeto);
+    }
+    
     public Objeto recogeObjeto(int indx)
     {
         Objeto devuelve = null;

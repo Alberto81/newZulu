@@ -64,7 +64,7 @@ public class Game
         tiendaRopa.setExit("rie", salida);
         descansillo.setExit("vuela", salida);
         //creo objetos en las habitaciones.
-       plaza.addItem("una gran estatua de bronce dentro de una fuente decorativa.", 3000.0F, false);
+        plaza.addItem("una gran estatua de bronce dentro de una fuente decorativa.", 3000.0F, false);
         plaza.addItem("una cartera perdida.", 0.05F, true);
         zapateria.addItem("una moneda.", 0.005F, true);
         peluqueria.addItem("una revista.",0.2F, true);
@@ -134,8 +134,8 @@ public class Game
         else if (commandWord.equals("eat")) {
             System.out.println( "You have eaten now and you are not hungry any more");
         } 
-         else if (commandWord.equals("back")) {
-           backRoom();
+        else if (commandWord.equals("back")) {
+            backRoom();
         } 
         else if (commandWord.equals("take")) {
             coge(command);
@@ -143,11 +143,33 @@ public class Game
         else if (commandWord.equals("items")) {
             jugador.imprimeMochila() ;
         } 
+        else if (commandWord.equals("drop")) {
+            deja(command);
+        } 
 
         return wantToQuit;
     }
 
-     public void coge(Command command)
+    public void deja(Command command)
+    {
+
+        //se desarrollara entre room y player.
+
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("que dejo?");
+            return;
+        }
+        int indx = Integer.parseInt(command.getSecondWord());
+        Objeto tiro =  jugador.tiro(indx);
+        if (tiro!=null){
+            currentRoom.dejaObjeto(tiro);
+        }
+
+        printLocationInfo();
+    }
+
+    public void coge(Command command)
     {
 
         //se desarrollara entre room y player.
@@ -166,26 +188,26 @@ public class Game
 
         printLocationInfo();
     }
-    
+
     public void backRoom()
     {
         if(!pila.empty()){
-        currentRoom = pila.pop();
-         printLocationInfo();
+            currentRoom = pila.pop();
+            printLocationInfo();
         }
         else{
-         System.out.println( "estas en la primera habitacion, no puedes retroceder mas");
+            System.out.println( "estas en la primera habitacion, no puedes retroceder mas");
         }
     }
-    
+
     public void validComandsA()
     {
-    parser.getCommands().showAll();
+        parser.getCommands().showAll();
     }
-    
+
     public void validComandsB()
     {
-     parser.imprimeComandos();
+        parser.imprimeComandos();
     }
 
     /**
@@ -199,7 +221,7 @@ public class Game
         System.out.println("around at the centro comercial.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help look eat back take items ");
+        System.out.println("   go quit help look eat back take items drop ");
     }
 
     /** 
@@ -222,9 +244,9 @@ public class Game
         else {
             pila.push(currentRoom);//va antes porque nos interesa la habitacion en la que ha estado, no en la que esta.
             currentRoom = nextRoom;//cambio de habitacion
-             
+
         }
-         printLocationInfo();
+        printLocationInfo();
     }
 
     // ejercicio 0108, cambiar codigo repetido por petodo privado
