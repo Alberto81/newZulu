@@ -139,6 +139,9 @@ public class Game
         else if (commandWord.equals("take")) {
             coge(command);
         } 
+        else if (commandWord.equals("items")) {
+            jugador.imprimeMochila() ;
+        } 
 
         return wantToQuit;
     }
@@ -195,7 +198,7 @@ public class Game
         System.out.println("around at the centro comercial.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help look eat back take");
+        System.out.println("   go quit help look eat back take items ");
     }
 
     /** 

@@ -40,5 +40,21 @@ public class Player
         }
     }
 
-
+    public void imprimeMochila()
+    {
+        int pos = 0;
+        System.out.println("en la mochila tienes:");
+        boolean hayAlgo = false;
+        for(Objeto objeto: mochila ){
+            hayAlgo = true;
+            System.out.println("objeto nº: "+pos); 
+            objeto.describeObjeto();
+            pos++;
+        }
+        if (!hayAlgo){
+            System.out.println("nada.");
+        }
+        System.out.println("peso total de la mochila: "+pesoMochila()+".");
+        System.out.println("");
+    }
 }
