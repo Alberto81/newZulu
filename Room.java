@@ -46,9 +46,9 @@ public class Room
         System.out.println(); 
     }
     
-    public void addItem (String objeto, float pesoObjeto)
+    public void addItem (String objeto, float pesoObjeto, boolean seCoge)
     {
-        objetos.add(new Objeto(objeto, pesoObjeto));
+        objetos.add(new Objeto(objeto, pesoObjeto, seCoge));
     }
         
     public String getExitString()

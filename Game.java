@@ -62,14 +62,13 @@ public class Game
         tiendaRopa.setExit("rie", salida);
         descansillo.setExit("vuela", salida);
         //creo objetos en las habitaciones.
-        plaza.addItem("una gran estatua de bronce dentro de una fuente decorativa", 3000.0F);
-        plaza.addItem("una cartera perdida", 0.05F);
-        zapateria.addItem("una moneda", 0.005F);
-        peluqueria.addItem("una revista",0.2F);
-        servicios.addItem("una llave", 0.03F);
-        descansillo.addItem("una maquina de refrescos", 150.0F);
+       plaza.addItem("una gran estatua de bronce dentro de una fuente decorativa.", 3000.0F, false);
+        plaza.addItem("una cartera perdida.", 0.05F, true);
+        zapateria.addItem("una moneda.", 0.005F, true);
+        peluqueria.addItem("una revista.",0.2F, true);
+        servicios.addItem("una llave.", 0.03F, true);
+        descansillo.addItem("una maquina de refrescos.", 150.0F, false);
         currentRoom = plaza;  // start game outside
-        
     }
 
     /**
