@@ -39,7 +39,7 @@ public class Room
     {
         objetos.add(objeto);
     }
-    
+
     public Objeto recogeObjeto(int indx)
     {
         Objeto devuelve = null;
@@ -50,17 +50,20 @@ public class Room
         else{
             System.out.println("ese numero no se corresponde con ningun objeto");
         }
-        if (!devuelve.getSeCoge()){
-            System.out.println("este objeto no se puede coger");
-            devuelve= null;
-        }
-        else{
-            objetos.remove(indx);
+
+        if (devuelve!=null){  
+            if (!devuelve.getSeCoge()){
+                System.out.println("este objeto no se puede coger");
+                devuelve= null;
+            }
+            else{
+                objetos.remove(indx);
+            }
         }
         return devuelve;
     }
 
-     public void getLongDescription()
+    public void getLongDescription()
     {
         int pos = 0;
         System.out.println("You are " + getDescription());
