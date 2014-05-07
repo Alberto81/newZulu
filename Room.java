@@ -55,13 +55,17 @@ public class Room
         return devuelve;
     }
 
-    public void getLongDescription()
+     public void getLongDescription()
     {
-
+        int pos = 0;
         System.out.println("You are " + getDescription());
+        System.out.println("en esta habitación hay los siguientes objetos:");
         for(Objeto objeto: objetos ){
+            System.out.println("objeto nº: "+pos+"."); 
             objeto.describeObjeto();
+            pos++;
         }
+        System.out.println();
         System.out.print(getExitString());
         System.out.println(); 
     }
