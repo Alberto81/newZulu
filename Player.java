@@ -23,7 +23,7 @@ public class Player
     {
         float pesoTotal = 0;
         for(Objeto objeto: mochila ){
-            pesoTotal =+ objeto.getPeso();
+            pesoTotal += objeto.getPeso();
         }
         return pesoTotal;
     }
