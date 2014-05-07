@@ -31,6 +31,7 @@ public class Game
     {
         parser = new Parser();
         pila = new Stack<Room>();
+        jugador = new Player();
         createRooms();
     }
 
