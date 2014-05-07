@@ -23,6 +23,7 @@ public class Game
     private Parser parser;
     private Room currentRoom;
     private Stack<Room> pila;
+    private Player jugador;
     /**
      * Create the game and initialise its internal map.
      */
@@ -135,10 +136,33 @@ public class Game
          else if (commandWord.equals("back")) {
            backRoom();
         } 
+        else if (commandWord.equals("take")) {
+            coge(command);
+        } 
 
         return wantToQuit;
     }
 
+     public void coge(Command command)
+    {
+
+        //se desarrollara entre room y player.
+
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("que cojo?");
+            return;
+        }
+        int indx = Integer.parseInt(command.getSecondWord());
+
+        Objeto recojo =  currentRoom.recogeObjeto(indx);
+        if (recojo!=null){
+            jugador.cogeobjeto(recojo);
+        }
+
+        printLocationInfo();
+    }
+    
     public void backRoom()
     {
         if(!pila.empty()){
@@ -171,7 +195,7 @@ public class Game
         System.out.println("around at the centro comercial.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+        System.out.println("   go quit help look eat back take");
     }
 
     /** 

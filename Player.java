@@ -19,7 +19,26 @@ public class Player
         mochila = new ArrayList<Objeto>();
     }
 
-   
+    public float pesoMochila()
+    {
+        float pesoTotal = 0;
+        for(Objeto objeto: mochila ){
+            pesoTotal =+ objeto.getPeso();
+        }
+        return pesoTotal;
+    }
+
+    public void cogeobjeto(Objeto objeto)
+    {
+        if ((pesoMochila() + objeto.getPeso()) > PESO_MAX){
+            System.out.println("no puedes coger el objeto, llevas demasiado peso.");
+            System.out.println("");
+        }
+        else{
+            mochila.add(objeto); 
+
+        }
+    }
 
 
 }

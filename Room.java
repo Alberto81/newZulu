@@ -35,22 +35,42 @@ public class Room
 
     }
 
+    public Objeto recogeObjeto(int indx)
+    {
+        Objeto devuelve = null;
+        if (indx >= 0 && indx < objetos.size() ){
+            devuelve = objetos.get(indx);
+
+        }
+        else{
+            System.out.println("ese numero no se corresponde con ningun objeto");
+        }
+        if (!devuelve.getSeCoge()){
+            System.out.println("este objeto no se puede coger");
+            devuelve= null;
+        }
+        else{
+            objetos.remove(indx);
+        }
+        return devuelve;
+    }
+
     public void getLongDescription()
     {
 
         System.out.println("You are " + getDescription());
         for(Objeto objeto: objetos ){
-          objeto.describeObjeto();
+            objeto.describeObjeto();
         }
         System.out.print(getExitString());
         System.out.println(); 
     }
-    
+
     public void addItem (String objeto, float pesoObjeto, boolean seCoge)
     {
         objetos.add(new Objeto(objeto, pesoObjeto, seCoge));
     }
-        
+
     public String getExitString()
     {
         String conjuntoSalidas="salidas por: ";
