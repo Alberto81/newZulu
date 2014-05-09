@@ -62,6 +62,26 @@ public class Player
 
     }
     
+    public void coge(Command command)
+    {
+
+        //se desarrollara entre room y player.
+
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("que cojo?");
+            return;
+        }
+        int indx = Integer.parseInt(command.getSecondWord());
+
+        Objeto recojo =  currentRoom.recogeObjeto(indx);
+        if (recojo!=null){
+            cogeobjeto(recojo);
+        }
+
+        printLocationInfo();
+    }
+    
     public void backRoom()
     {
         if(!camino.empty()){
