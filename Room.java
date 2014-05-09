@@ -67,12 +67,18 @@ public class Room
     public void getLongDescription()
     {
         int pos = 0;
+        boolean hayObjeto = false;
         System.out.println("You are " + getDescription());
         System.out.println("en esta habitación hay los siguientes objetos:");
         for(Objeto objeto: objetos ){
+            hayObjeto = true;
             System.out.println("objeto nº: "+pos+"."); 
             objeto.describeObjeto();
             pos++;
+        }
+        
+        if (!hayObjeto){
+         System.out.println("No hay nada.");
         }
         System.out.println();
         System.out.print(getExitString());

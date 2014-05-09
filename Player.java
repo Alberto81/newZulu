@@ -76,9 +76,10 @@ public class Player
         Objeto alSuelo =  tiro(indx);
         if (alSuelo!=null){
             currentRoom.dejaObjeto(alSuelo);
+            printLocationInfo();
         }
 
-        printLocationInfo();
+        
     }
 
     public void coge(Command command)
@@ -96,9 +97,10 @@ public class Player
         Objeto recojo =  currentRoom.recogeObjeto(indx);
         if (recojo!=null){
             cogeobjeto(recojo);
+             printLocationInfo();
         }
 
-        printLocationInfo();
+       
     }
 
     public void backRoom()
@@ -189,7 +191,7 @@ public class Player
         if (!hayAlgo){
             System.out.println("nada.");
         }
-        System.out.println("peso total de la mochila: "+pesoMochila()+".");
+        System.out.println("peso total de la mochila: "+pesoMochila()+" Kg.");
         System.out.println("");
     }
 }
