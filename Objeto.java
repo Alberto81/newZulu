@@ -24,9 +24,9 @@ public class Objeto
 
     public boolean getSeCoge()
     {
-    return seCoge;
+        return seCoge;
     }
-    
+
     public void describeObjeto()
     {
         if(objeto != null){
@@ -36,7 +36,7 @@ public class Objeto
 
     public float getPeso()
     {
-    return pesoObjeto;
+        return pesoObjeto;
     }
-    
+
 }

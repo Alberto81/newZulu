@@ -16,14 +16,14 @@ public class Player
     private Stack<Room> camino;
     //habitacion en la que está
     //habitaciones pasadas
-//metodos
+    //metodos
     //goroom, back look eat
     /**
      * Constructor for objects of class Player
      */
     public Player()
     {
-         plaza = new Room("in plaza,una amplia plaza redonda en el medio del centro comercial");
+        plaza = new Room("in plaza,una amplia plaza redonda en el medio del centro comercial");
         zapateria= new Room("in zapateria, una tienda de zapatos");
         tiendaRopa = new Room("in tienda ropa, una tienda de ropa");
         peluqueria = new Room("in peluqueria, la peluqueria del centro comercial");
@@ -56,12 +56,12 @@ public class Player
         currentRoom = plaza;
     }
 
-     public void printLocationInfo()
+    public void printLocationInfo()
     {
         currentRoom.getLongDescription();
 
     }
-    
+
     public void deja(Command command)
     {
 
@@ -81,7 +81,6 @@ public class Player
         printLocationInfo();
     }
 
-    
     public void coge(Command command)
     {
 
@@ -101,7 +100,7 @@ public class Player
 
         printLocationInfo();
     }
-    
+
     public void backRoom()
     {
         if(!camino.empty()){
@@ -112,7 +111,7 @@ public class Player
             System.out.println( "estas en la primera habitacion, no puedes retroceder mas");
         }
     }
-    
+
     /** 
      * Try to go in one direction. If there is an exit, enter
      * the new room, otherwise print an error message.
@@ -131,19 +130,18 @@ public class Player
             System.out.println("There is no door!");
         }
         else {
-        //    pila.push(currentRoom);//esto aun no va.
+            //    pila.push(currentRoom);//esto aun no va.
             currentRoom = nextRoom;//cambio de habitacion
 
         }
         printLocationInfo();
     }
-    
+
     public void come()
     {
-     System.out.println( "You have eaten now and you are not hungry any more");
+        System.out.println( "You have eaten now and you are not hungry any more");
     }
-    
-    
+
     public float pesoMochila()
     {
         float pesoTotal = 0;

@@ -54,6 +54,7 @@ public class Room
         if (devuelve!=null){  
             if (!devuelve.getSeCoge()){
                 System.out.println("este objeto no se puede coger");
+                 System.out.println("");
                 devuelve= null;
             }
             else{

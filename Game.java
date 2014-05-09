@@ -1,5 +1,4 @@
 
-
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -19,10 +18,9 @@
 
 public class Game 
 {
-    
+
     private Parser parser;
-   
-  
+
     private Player jugador;
     /**
      * Create the game and initialise its internal map.
@@ -30,21 +28,10 @@ public class Game
     public Game() 
     {
         parser = new Parser();
-       
+
         jugador = new Player();
-        createRooms();
     }
 
-    /**
-     * Create all the rooms and link their exits together.
-     */
-    private void createRooms()
-    {
-
-        // create the rooms
-       
-         // start game outside
-    }
 
     /**
      *  Main play routine.  Loops until end of play.
@@ -111,13 +98,13 @@ public class Game
             jugador.backRoom();
         } 
         else if (commandWord.equals("take")) {
-           jugador.coge(command);
+            jugador.coge(command);
         } 
         else if (commandWord.equals("items")) {
             jugador.imprimeMochila() ;
         } 
         else if (commandWord.equals("drop")) {
-           jugador.deja(command);
+            jugador.deja(command);
         } 
 
         return wantToQuit;
@@ -125,9 +112,6 @@ public class Game
 
     
     
-
-    
-
     public void validComandsA()
     {
         parser.getCommands().showAll();
@@ -152,10 +136,8 @@ public class Game
         System.out.println("   go quit help look eat back take items drop ");
     }
 
-    
 
     // ejercicio 0108, cambiar codigo repetido por petodo privado
-   
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
