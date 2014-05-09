@@ -102,10 +102,10 @@ public class Game
             wantToQuit = quit(command);
         }
         else if (commandWord.equals("look")) {
-            jugador.printLocationInfo();
+            jugador.printLocationInfo(); 
         } 
         else if (commandWord.equals("eat")) {
-            System.out.println( "You have eaten now and you are not hungry any more");
+            jugador.come();
         } 
         else if (commandWord.equals("back")) {
             backRoom();

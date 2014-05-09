@@ -84,7 +84,10 @@ public class Player
         printLocationInfo();
     }
     
-    
+    public void come()
+    {
+     System.out.println( "You have eaten now and you are not hungry any more");
+    }
     
     
     public float pesoMochila()
