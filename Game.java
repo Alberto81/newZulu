@@ -117,31 +117,13 @@ public class Game
             jugador.imprimeMochila() ;
         } 
         else if (commandWord.equals("drop")) {
-            deja(command);
+           jugador.deja(command);
         } 
 
         return wantToQuit;
     }
 
-    public void deja(Command command)
-    {
-
-        //se desarrollara entre room y player.
-
-        if(!command.hasSecondWord()) {
-            // if there is no second word, we don't know where to go...
-            System.out.println("que dejo?");
-            return;
-        }
-        int indx = Integer.parseInt(command.getSecondWord());
-        Objeto tiro =  jugador.tiro(indx);
-        if (tiro!=null){
-            currentRoom.dejaObjeto(tiro);
-        }
-
-        printLocationInfo();
-    }
-
+    
     
 
     

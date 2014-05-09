@@ -62,6 +62,26 @@ public class Player
 
     }
     
+    public void deja(Command command)
+    {
+
+        //se desarrollara entre room y player.
+
+        if(!command.hasSecondWord()) {
+            // if there is no second word, we don't know where to go...
+            System.out.println("que dejo?");
+            return;
+        }
+        int indx = Integer.parseInt(command.getSecondWord());
+        Objeto alSuelo =  tiro(indx);
+        if (alSuelo!=null){
+            currentRoom.dejaObjeto(alSuelo);
+        }
+
+        printLocationInfo();
+    }
+
+    
     public void coge(Command command)
     {
 
