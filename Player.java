@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Stack;
 /**
  * Write a description of class Player here.
  * 
@@ -12,6 +13,7 @@ public class Player
     public static final float PESO_MAX = 50.0F;
     private Room currentRoom;
     public Room plaza, zapateria, tiendaRopa, peluqueria, descansillo, servicios, salida;
+    private Stack<Room> camino;
     //habitacion en la que está
     //habitaciones pasadas
 //metodos
@@ -50,6 +52,7 @@ public class Player
         servicios.addItem("una llave.", 0.03F, true);
         descansillo.addItem("una maquina de refrescos.", 150.0F, false);// asta aki estaba en createrooms
         mochila = new ArrayList<Objeto>();
+        camino = new Stack<Room>();
         currentRoom = plaza;
     }
 
@@ -57,6 +60,17 @@ public class Player
     {
         currentRoom.getLongDescription();
 
+    }
+    
+    public void backRoom()
+    {
+        if(!camino.empty()){
+            currentRoom = camino.pop();
+            printLocationInfo();
+        }
+        else{
+            System.out.println( "estas en la primera habitacion, no puedes retroceder mas");
+        }
     }
     
     /** 
