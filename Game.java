@@ -19,9 +19,9 @@ import java.util.Stack;
 
 public class Game 
 {
-    private Room plaza, zapateria, tiendaRopa, peluqueria, descansillo, servicios, salida;//para poder acceder a las habitaciones
+    
     private Parser parser;
-    private Room currentRoom;
+   
     private Stack<Room> pila;
     private Player jugador;
     /**
@@ -42,35 +42,8 @@ public class Game
     {
 
         // create the rooms
-        plaza = new Room("in plaza,una amplia plaza redonda en el medio del centro comercial");
-        zapateria= new Room("in zapateria, una tienda de zapatos");
-        tiendaRopa = new Room("in tienda ropa, una tienda de ropa");
-        peluqueria = new Room("in peluqueria, la peluqueria del centro comercial");
-        descansillo = new Room("in descansillo, un espacio amplio al sur del centro comercial");
-        servicios = new Room("in baño, los WC del centro comercial");
-        salida = new Room("in la salida, encontraste la salida del centro comercial!");
-        // initialise room exits***modificado para la 0110
-        plaza.setExits(zapateria, peluqueria, descansillo, tiendaRopa, null, null);
-        zapateria.setExits(null, null, plaza, null, peluqueria, null);
-        tiendaRopa.setExits(null, plaza, null, null, null, null);
-        peluqueria.setExits(null, null, null, plaza, null, zapateria);
-        descansillo.setExits(plaza, servicios, salida, null, null, null);
-        servicios.setExits(null, null, null, descansillo, null, null);
-        salida.setExits(descansillo, null, null, null, null, null);
-        plaza.setExit("escala", servicios);
-        servicios.setExit("bucea", plaza);
-        zapateria.setExit("salta", salida);
-        salida.setExit("atlas", zapateria);
-        tiendaRopa.setExit("rie", salida);
-        descansillo.setExit("vuela", salida);
-        //creo objetos en las habitaciones.
-        plaza.addItem("una gran estatua de bronce dentro de una fuente decorativa.", 3000.0F, false);
-        plaza.addItem("una cartera perdida.", 0.05F, true);
-        zapateria.addItem("una moneda.", 0.005F, true);
-        peluqueria.addItem("una revista.",0.2F, true);
-        servicios.addItem("una llave.", 0.03F, true);
-        descansillo.addItem("una maquina de refrescos.", 150.0F, false);
-        currentRoom = plaza;  // start game outside
+       
+         // start game outside
     }
 
     /**
@@ -101,7 +74,7 @@ public class Game
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
-        printLocationInfo();//codigo remplazado por metodo
+        jugador.printLocationInfo();//codigo remplazado por metodo
     }
 
     /**
@@ -123,13 +96,13 @@ public class Game
             printHelp();
         }
         else if (commandWord.equals("go")) {
-            goRoom(command);
+            jugador.goRoom(command);
         }
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
         }
         else if (commandWord.equals("look")) {
-            printLocationInfo();
+            jugador.printLocationInfo();
         } 
         else if (commandWord.equals("eat")) {
             System.out.println( "You have eaten now and you are not hungry any more");
@@ -224,37 +197,10 @@ public class Game
         System.out.println("   go quit help look eat back take items drop ");
     }
 
-    /** 
-     * Try to go in one direction. If there is an exit, enter
-     * the new room, otherwise print an error message.
-     */
-    private void goRoom(Command command) 
-    {
-        if(!command.hasSecondWord()) {
-            // if there is no second word, we don't know where to go...
-            System.out.println("Go where?");
-            return;
-        }
-        String direccion = command.getSecondWord();
-        Room nextRoom = currentRoom.getExit(direccion);
-
-        if (nextRoom == null) {
-            System.out.println("There is no door!");
-        }
-        else {
-            pila.push(currentRoom);//va antes porque nos interesa la habitacion en la que ha estado, no en la que esta.
-            currentRoom = nextRoom;//cambio de habitacion
-
-        }
-        printLocationInfo();
-    }
+    
 
     // ejercicio 0108, cambiar codigo repetido por petodo privado
-    private void printLocationInfo()
-    {
-        currentRoom.getLongDescription();
-
-    }
+   
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
