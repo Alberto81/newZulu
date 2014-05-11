@@ -71,19 +71,21 @@ public class Player
         }
         int indx = Integer.parseInt(command.getSecondWord());
 
-        Objeto recojo =  currentRoom.recogeObjeto(indx);//si pasa el primer if deveria tener un valor valido siempre.
         //dependiendo de si el metodo a utilizar esta en room o en objeto, utilizo currentRoom o recojo.
-        if(!(indx >= 0 && indx <= currentRoom.getCantidadObjetos()) ){
+        if(!currentRoom.validaIndice(indx) ){
             System.out.println("Indice de objeto de la habitacion para recoger no valido");
-        }else if (!recojo.getSeCoge()){
-            System.out.println("El objeto no se puede coger");
-        }else if ((pesoMochila()+recojo.getPeso()) > PESO_MAX){
-            System.out.println("llevas demasiado peso para coger este objeto");
-        }else{ //si llegamos a este punto deve ser posible coger el objeto
-            mochila.add(recojo);
-            currentRoom.objetoHabitacionRecogido(indx);//borra el objeto recogido del arrayList de la habitación actual.
-            System.out.println("Objeto recogido.");
-            printLocationInfo();
+        }else{
+            Objeto recojo =  currentRoom.recogeObjeto(indx);//si pasa el primer if deveria tener un valor valido siempre.
+            if (!recojo.getSeCoge()){
+                System.out.println("El objeto no se puede coger");
+            }else if ((pesoMochila()+recojo.getPeso()) > PESO_MAX){
+                System.out.println("llevas demasiado peso para coger este objeto");
+            }else{ //si llegamos a este punto deve ser posible coger el objeto
+                mochila.add(recojo);
+                currentRoom.objetoHabitacionRecogido(indx);//borra el objeto recogido del arrayList de la habitación actual.
+                System.out.println("Objeto recogido.");
+                printLocationInfo();
+            }
         }
     }
 

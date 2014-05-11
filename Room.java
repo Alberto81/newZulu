@@ -35,6 +35,15 @@ public class Room
 
     }
 
+    public boolean validaIndice(int indx)
+    {
+        boolean valido = false;
+        if((indx >= 0 && indx <= getCantidadObjetos()) ){
+            valido = true;
+        }
+        return valido;
+    }
+
     public Objeto recogeObjeto(int indx)
     {
         return objetos.get(indx);
