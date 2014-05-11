@@ -35,34 +35,24 @@ public class Room
 
     }
 
+    public Objeto recogeObjeto(int indx)
+    {
+        return objetos.get(indx);
+    }
+
     public void dejaObjeto(Objeto objeto)
     {
         objetos.add(objeto);
     }
 
-    public Objeto recogeObjeto(int indx)
+    public int getCantidadObjetos()
     {
-        Objeto devuelve = null;
-        if (indx >= 0 && indx < objetos.size() ){
-            devuelve = objetos.get(indx);
+        return objetos.size();
+    }
 
-        }
-        else{
-            System.out.println("ese numero no se corresponde con ningun objeto");
-        }
-
-        if (devuelve!=null){  
-            if (!devuelve.getSeCoge()){
-                System.out.println("este objeto no se puede coger");
-                 System.out.println("");
-                devuelve= null;
-            }
-            else {
-                
-                objetos.remove(indx);
-            }
-        }
-        return devuelve;
+    public void objetoHabitacionRecogido(int indx)
+    {
+        objetos.remove(indx);
     }
 
     public void getLongDescription()
@@ -77,9 +67,9 @@ public class Room
             objeto.describeObjeto();
             pos++;
         }
-        
+
         if (!hayObjeto){
-         System.out.println("No hay nada.");
+            System.out.println("No hay nada.");
         }
         System.out.println();
         System.out.print(getExitString());
