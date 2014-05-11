@@ -28,16 +28,50 @@ public class Game
     public Game() 
     {
         parser = new Parser();
-
         jugador = new Player();
+        createRooms();
     }
 
-
+    private void createRooms()
+    {
+        Room zapateria= new Room("una tienda donde venden todo tipo de calzado");
+        Room plaza = new Room("in plaza,una amplia plaza redonda en el medio del centro comercial");
+        Room tiendaRopa = new Room("in tienda ropa, una tienda de ropa");
+        Room peluqueria = new Room("in peluqueria, la peluqueria del centro comercial");
+        Room descansillo = new Room("in descansillo, un espacio amplio al sur del centro comercial");
+        Room servicios = new Room("in baño, los WC del centro comercial");
+        Room salida = new Room("in la salida, encontraste la salida del centro comercial!");
+        // initialise room exits***modificado para la 0110
+        plaza.setExits(zapateria, peluqueria, descansillo, tiendaRopa, null, null);
+        zapateria.setExits(null, null, plaza, null, peluqueria, null);
+        tiendaRopa.setExits(null, plaza, null, null, null, null);
+        peluqueria.setExits(null, null, null, plaza, null, zapateria);
+        descansillo.setExits(plaza, servicios, salida, null, null, null);
+        servicios.setExits(null, null, null, descansillo, null, null);
+        salida.setExits(descansillo, null, null, null, null, null);
+        plaza.setExit("escala", servicios);
+        servicios.setExit("bucea", plaza);
+        zapateria.setExit("salta", salida);
+        salida.setExit("atlas", zapateria);
+        tiendaRopa.setExit("rie", salida);
+        descansillo.setExit("vuela", salida);
+        //creo objetos en las habitaciones.
+        plaza.addItem("una gran estatua de bronce dentro de una fuente decorativa.", 49.950F, true);
+        plaza.addItem("una cartera perdida.", 0.05F, true);
+        zapateria.addItem("una moneda.", 0.005F, true);
+        peluqueria.addItem("una revista.",0.2F, true);
+        servicios.addItem("una llave.", 0.03F, true);
+        descansillo.addItem("una maquina de refrescos.", 150.0F, false);// asta aki estaba en createrooms
+        
+        jugador.setCurrentRoom(plaza);
+    }
+    
     /**
      *  Main play routine.  Loops until end of play.
      */
     public void play() 
-    {            
+    {   
+        createRooms();
         printWelcome();
 
         // Enter the main command loop.  Here we repeatedly read commands and
@@ -112,12 +146,12 @@ public class Game
 
     
     
-    public void validComandsA()
+    private void validComandsA()
     {
         parser.getCommands().showAll();
     }
 
-    public void validComandsB()
+    private void validComandsB()
     {
         parser.imprimeComandos();
     }

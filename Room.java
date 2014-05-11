@@ -57,7 +57,8 @@ public class Room
                  System.out.println("");
                 devuelve= null;
             }
-            else{
+            else {
+                
                 objetos.remove(indx);
             }
         }

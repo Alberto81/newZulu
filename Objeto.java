@@ -21,7 +21,12 @@ public class Objeto
         this.pesoObjeto = pesoObjeto;
         this.seCoge = seCoge;
     }
-
+    
+    public float getPeso()
+    {
+      return pesoObjeto;
+    }
+    
     public boolean getSeCoge()
     {
         return seCoge;
@@ -32,11 +37,6 @@ public class Objeto
         if(objeto != null){
             System.out.println(objeto+". Pesa "+pesoObjeto+" kg." );
         }
-    }
-
-    public float getPeso()
-    {
-        return pesoObjeto;
     }
 
 }
