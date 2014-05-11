@@ -118,7 +118,7 @@ public class Player
             System.out.println("There is no door!");
         }
         else {
-            //    pila.push(currentRoom);//esto aun no va.
+            camino.push(currentRoom);
             currentRoom = nextRoom;//cambio de habitacion
 
         }
