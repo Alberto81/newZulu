@@ -48,9 +48,9 @@ public class CommandWords
      * @return true if a given string is a valid command,
      * false if it isn't.
      */
-    public boolean isCommand(String comando)
+    public boolean isCommand(Option comando)
     {
-        return comandosMap.containsKey(comando);
+        return comandosMap.containsValue(comando);
     }
 
     /**

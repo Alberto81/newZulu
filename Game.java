@@ -109,38 +109,38 @@ public class Game
 
         if(command.isUnknown()) {
             System.out.println("I don't know what you mean...");
-            return false;
+            return false;// a causa de este return, es tonteria poner Option.UNKNOWN porque no se ejecutara.
         }
 
-        String commandWord = command.getCommandWord();
-        if (commandWord.equals("help")) {
+        Option commandWord = command.getCommandWord();
+        if (commandWord == Option.HELP) {
             printHelp();
         }
-        else if (commandWord.equals("go")) {
+        else if (commandWord == Option.GO) {
             jugador.goRoom(command);
         }
-        else if (commandWord.equals("quit")) {
+        else if (commandWord == Option.QUIT) {
             wantToQuit = quit(command);
         }
-        else if (commandWord.equals("look")) {
+        else if (commandWord == Option.LOOK) {
             jugador.printLocationInfo(); 
         } 
-        else if (commandWord.equals("eat")) {
+        else if (commandWord == Option.EAT) {
             jugador.come();
         } 
-        else if (commandWord.equals("back")) {
+        else if (commandWord == Option.BACK) {
             jugador.backRoom();
         } 
-        else if (commandWord.equals("take")) {
+        else if (commandWord == Option.TAKE) {
             jugador.coge(command);
         } 
-        else if (commandWord.equals("items")) {
+        else if (commandWord == Option.ITEMS) {
             jugador.imprimeMochila() ;
         } 
-        else if (commandWord.equals("drop")) {
+        else if (commandWord == Option.DROP) {
             jugador.deja(command);
         } 
-
+      
         return wantToQuit;
     }
 
