@@ -62,8 +62,8 @@ public class CommandWords
     public Option getCommandWord(String commandWord)
     {
         Option returnedValue;
-        if (comandoMap.containsKey(commandWord)){
-            returnedValue = comandoMap.get(commandWord);
+        if (comandosMap.containsKey(commandWord)){
+            returnedValue = comandosMap.get(commandWord);
 
         }else{
             returnedValue = Option.UNKNOWN;
