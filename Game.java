@@ -107,13 +107,13 @@ public class Game
     {
         boolean wantToQuit = false;
 
-        if(command.isUnknown()) {
-            System.out.println("I don't know what you mean...");
-            return false;// a causa de este return, es tonteria poner Option.UNKNOWN porque no se ejecutara.
-        }
-
+       
         Option commandWord = command.getCommandWord();
-        if (commandWord == Option.HELP) {
+         if(commandWord == Option.UNKNOWN) {
+            System.out.println("I don't know what you mean...");
+          
+        }
+        else if (commandWord == Option.HELP) {
             printHelp();
         }
         else if (commandWord == Option.GO) {
